@@ -1,0 +1,27 @@
+.page-header.navbar .page-logo {
+    background: transparent;
+}
+
+.page-header.navbar .page-logo .logo-default {
+    margin: 10px 0 0 0;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle:last-child {
+    padding-right: 16px;
+}
+
+.menu-toggler-icon {
+    float: left;
+    margin: 29px;
+    background-image: url("../images/sidebar_toggler_icon_grey.png");
+    display: block;
+    width: 16px;
+    height: 13px;
+    &:hover{
+        background-image: url("../images/sidebar_toggler_icon_darkblue.png");
+    }
+}
+.logo-company{
+    float: left;
+    margin: 10px 0 0 15px;
+}

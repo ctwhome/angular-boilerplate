@@ -1,0 +1,17 @@
+/* It is only an example */
+
+/* Tablet*/ 
+@media screen and (max-width: 1000px){
+	.clase{height:100%;}
+}
+
+/* Phablet*/ 
+@media screen and (max-width: 800px){
+	.form-container{height:80%;}
+
+}
+
+/* SmartPhone*/ 
+@media screen and (max-width: 400px){
+	.clase{height:50%;}
+}
