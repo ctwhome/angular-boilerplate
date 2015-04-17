@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "browser-sync": "^2.6.4",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-filter": "^2.0.2",
+    "gulp-ng-annotate": "^0.5.2",
+    "gulp-ruby-sass": "^1.0.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0"
+  }
+}
