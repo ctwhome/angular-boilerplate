@@ -14,6 +14,7 @@ TODO
  - Add web component example structure (buid with directives)
  - UI bootstrap
  - Use restangular or $resource??
- - Live Edit for documentation, requires login authentification
+ - Live Edit for documentation, requires login authentification mongolabs connection)
  - Multi languages
+ - Documentation for best practices
  
