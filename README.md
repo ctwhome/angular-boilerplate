@@ -11,6 +11,7 @@ Current
 
 TODO
  - Gulp server and watch for Sass
+ - Template cache
  - Add web component example structure (buid with directives)
  - UI bootstrap
  - Use restangular or $resource??
