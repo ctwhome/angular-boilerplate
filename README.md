@@ -10,6 +10,8 @@ Current
   - Simple building and minification
 
 TODO
+  - static asset node server w/ gzip
+  - Browsersync / gulp
  - Gulp server and watch for Sass
  - Template cache
  - Add web component example structure (buid with directives)
