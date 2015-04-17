@@ -10,7 +10,6 @@ Current
 
 TODO
  - Gulp: Simple building and minification
-
  - Angular Template cache
  - Add web component example structure (buid with directives)
  - UI bootstrap
