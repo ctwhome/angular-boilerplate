@@ -5,15 +5,13 @@ Current
 - ui-router (to be changed to ngNewRouter)
 - login form (state)
 - Responsive theme (http://www.keenthemes.com/preview/metronic/theme/templates/admin2/) with sass Structure from one file
-
-- Gulp
-  - Simple building and minification
+- Browsersync / gulp
+- Gulp watch for Sass
 
 TODO
-  - static asset node server w/ gzip
-  - Browsersync / gulp
- - Gulp server and watch for Sass
- - Template cache
+ - Gulp: Simple building and minification
+
+ - Angular Template cache
  - Add web component example structure (buid with directives)
  - UI bootstrap
  - Use restangular or $resource??
