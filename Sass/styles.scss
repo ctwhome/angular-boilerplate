@@ -41,9 +41,9 @@
 @import 'global/components';
 @import 'global/plugins';
 
+
 /* Choose between blue, light, dark, default, grey(default) */
 @import 'themes/grey';                  // Choose theme 
-
 
 /***        
 Page Loading    
@@ -73,3 +73,7 @@ Page Loading
 
 /* VIEWS - PAGES
 ========================================================================== */
+
+// * {
+// 	background-color: blue
+// }

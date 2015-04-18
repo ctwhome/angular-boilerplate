@@ -1,137 +1,65 @@
-$baseFontSize: 16;
+$color-checkbox-bg: #45B6af; // Light blue
 
-$green: #009688;
-$blue: #5677fc;
-$blueDark: #3b50ce;
-
-$slideDistance: 100;
-$slideDuration: .3s;
-
-$border-size: 2px;
-$border-color: #ccc;
-
-
-@function rem($val) {
-  @return #{$val / $baseFontSize}rem;
-}
-
-
-.checkbox, input[type="checkbox"] {
-  position: relative;
-  //top: rem(-6);
-  
-  margin: 0 1rem 0 0 ;
-  
+.checkbox {
+  padding: 1rem;
   cursor: pointer;
-  
-  &:before {
-        @include transition(all .3s ease-in-out);
-    
-        content: "";
-    
-        position: absolute;
-        left: 0;
-        z-index: 1;
-  
-        width: 1.5rem !important;
-        height: 1.5rem !important;
-    
-        border: $border-size solid $border-color; 
-  }
-  
-  &:checked {
-    &:before {
-     -webkit-transform: rotate(-45deg); 
-    -moz-transform: rotate(-45deg);  
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
-  
-        height: 1rem !important;
-  
-        border-color: $green;
-        border-top-style: none;
-        border-right-style: none;
-    } 
-  }
-  
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.cb-check {
+  height: 1.8rem;
+  width: 1.8rem;
+  display: inline-block;
+  vertical-align: bottom;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 0.1em;
+  border-radius: 0.1em;
+  margin-right: 0.5rem;
+  position: relative;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  -ms-transition: background 0.3s;
+  transition: background 0.3s;
   &:after {
-    content: "";
-    
+    content: '';
+    padding: 0.1em 0.3em;
+    display: inline-block;
     position: absolute;
-    top: rem(-2);
-    left: 0;
-    
-    width: 1.5rem;
-    height: 1.5rem;
-    
-    background:white;
-    
-    cursor: pointer;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: rotate(-90deg) translate(-7%, -45%) scale(0);
+    -moz-transform: rotate(-90deg) translate(-7%, -45%) scale(0);
+    -o-transform: rotate(-90deg) translate(-7%, -45%) scale(0);
+    -ms-transform: rotate(-90deg) translate(-7%, -45%) scale(0);
+    transform: rotate(-90deg) translate(-7%, -45%) scale(0);
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity = 0);
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    -o-transition: -o-transform 0.3s;
+    -ms-transition: -ms-transform 0.3s;
+    transition: transform 0.3s;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
   }
 }
 
-.button--round { 
-  @include transition(.3s background ease-in-out);
-  
-  width: 2rem;
-  height: 2rem;
-  
-  background: $blue;
-  
-  border-radius: 50%;
-  box-shadow: 0 rem(2) rem(5) 0 rgba(0, 0, 0, 0.25);
-  
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  
-  i {
-    font-size: 1rem;
-    line-height: 220%;
-    vertical-align: middle;
-  }
-  
-  &:hover {
-    background: $blueDark;
-  }
-}
-
-.button--sticky {
-  position: fixed;
-  right: 2rem;
-  top: 16rem;
-}
-
-%slide-up {
-  -webkit-animation-duration: $slideDuration;
-  animation-duration: $slideDuration;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-name: slideUp;
-  animation-name: slideUp;
-  -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@-webkit-keyframes slideUp {
-  0% {
-    -webkit-transform: translateY(rem($slideDistance));
-    transform: translateY(rem($slideDistance));
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  0% {
-    -webkit-transform: translateY(rem($slideDistance));
-    transform: translateY(rem($slideDistance));
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+input[type="checkbox"]:checked + .cb-check {
+  background: $color-checkbox-bg;
+  border: 1px solid darken($color-checkbox-bg, 5%);
+  &:after {
+    -webkit-transform: rotate(-45deg) translate(-14%, -116%) scale(1);
+    -moz-transform: rotate(-45deg) translate(-14%, -116%) scale(1);
+    -o-transform: rotate(-45deg) translate(-14%, -116%) scale(1);
+    -ms-transform: rotate(-45deg) translate(-14%, -116%) scale(1);
+    transform: rotate(-45deg) translate(-14%, -116%) scale(1);
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
   }
 }

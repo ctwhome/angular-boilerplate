@@ -18,7 +18,7 @@ var App = angular.module('App', [
         //// available for anybody
         .state('public',{
             url : '/public',
-            template : '<div>public</div>',
+            templateUrl : 'views/public.html',
         })
 
 
@@ -153,9 +153,11 @@ App.run(function ($rootScope, $state, $location, Auth) {
 
         if(shouldGoToPublic)
         {
-            $state.go('public');console.log('p')
+            // $state.go('public');
+            $state.go('login');
             event.preventDefault();
         }
+        
         // unmanaged
     });
 });
