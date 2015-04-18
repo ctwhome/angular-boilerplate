@@ -9,6 +9,7 @@ Current
 - Gulp watch for Sass
 
 TODO
+ - Clean CSS (only styles in use)
  - Gulp: Simple building and minification
  - Angular Template cache
  - Add web component example structure (buid with directives)
@@ -18,4 +19,7 @@ TODO
  - Multi languages
  - Documentation for best practices
  - Access login with http://andreareginato.github.io/oauth-ng/??
- 
+ - FEATURES:
+ -- UPLOAD FILES FUNCTIONALITY
+ -- DRAGG AND DROP
+ -- Admin users with groups and rols

@@ -15,7 +15,6 @@
  } 
 
 
-
 @import 'global/_bootstrap';
 
 // Import the fonts
@@ -42,9 +41,9 @@
 @import 'global/components';
 @import 'global/plugins';
 
+
 /* Choose between blue, light, dark, default, grey(default) */
 @import 'themes/grey';                  // Choose theme 
-
 
 /***        
 Page Loading    
@@ -75,3 +74,6 @@ Page Loading
 /* VIEWS - PAGES
 ========================================================================== */
 
+// body {
+// 	background-color: yellow
+// }

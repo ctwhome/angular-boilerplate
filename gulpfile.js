@@ -1,60 +1,121 @@
-var gulp = require('gulp')
-var concat = require('gulp-concat')
-var sourcemaps = require('gulp-sourcemaps')
-var uglify = require('gulp-uglify')
-var ngAnnotate = require('gulp-ng-annotate')
-var browserSync = require('browser-sync').create();
-var sass        = require('gulp-sass');;
+var gulp        = require("gulp");
+var plumber 	= require('gulp-plumber');
+
+var sass        = require("gulp-sass");
+var autoprefix  = require("gulp-autoprefixer");
+var sourcemaps  = require('gulp-sourcemaps')
+var uncss       = require('gulp-uncss');
+var minifyCSS   =  require('gulp-minify-css');
+var rename 		= require('gulp-rename');
+
 var filter      = require('gulp-filter');
+var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
-
-
-// Sources variables
-var src = {
-    scss: 'sass/**/*.scss',
-    css:  'app/css',
-    html: 'app/*.html'
-};
-
-//  Output variables
-var output = {
-	css: 
-}
+// var concat = require('gulp-concat')
+// var uglify = require('gulp-uglify')
+// var ngAnnotate = require('gulp-ng-annotate')
 
 
 
-// Build and minify 
-gulp.task('js', function () {
-	gulp.src(['src/**/module.js', 'src/**/*.js'])
-		.pipe(sourcemaps.init())
-		.pipe(concat('app.js'))
-		.pipe(ngAnnotate())
-		.pipe(uglify())
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('.'))
-})
+/**
+ * Sources variables
+ */ 
+var vars = {
+		src: {
+			// Sources 
+		    scss: 'sass/styles.scss',
+	    	html: './app/**/*.html',
+	    	js: "./app/**/*.js",
+	    	server: "./app"
+		},
+		des: {
+			// output 
+			css: './app/css',
+	    	js: './app/scripts'
+		}
+	};
 
-// create a task that ensures the `js` task is complete before
-// reloading browsers
-//gulp.task('js-watch', ['js'], browserSync.reload);
 
-// Compile sass into CSS & auto-inject into browsers
-gulp.task('sass', function() {
-    return gulp.src("./sass/*.scss")
-        .pipe(sass())
-        .pipe(gulp.dest("app/css"))
-        .pipe(reload({stream: true}));
-});
-
-// Static Server + watching scss/html files
-gulp.task('serve', ['sass'], function() {
-
-    browserSync.init({
-        server: "./app"
+/**
+ * Start BrowserSync
+ */
+gulp.task('browser-sync', function () {
+    browserSync({
+        server: vars.src.server
     });
-	gulp.watch(src.scss, ['sass']);
-    gulp.watch(src.html).on('change', reload);
-    gulp.watch("app/*.js").on('change', reload);
+});
+ 
+
+/**
+ * Compile sass
+ *
+ * 1. Create source maps
+ * 2. Show sass error in console and BrowserSync for 3 seconds
+ * 3. Reload browserSync
+ */
+ var separator = "\n------------------------------\n";
+gulp.task('sass', function () {
+    return gulp.src(vars.src.scss)
+		
+        .pipe(sourcemaps.init())
+            .pipe(sass())
+        .pipe(sourcemaps.write())
+        
+        .on('error', function(err){
+            browserSync.notify(err.message, 3000);
+            var error = "\nSASS ERROR"+separator+ 'Error: '+err.message + '\nFile: '+ err.fileName +'\nLine:'+err.lineNumber +separator;
+            console.log(error);
+            this.emit('end');
+        })
+        .pipe(gulp.dest(vars.des.css))
+        .pipe(filter("**/*.css"))
+        .pipe(reload({stream:true}));
 });
 
-gulp.task('default', ['serve']);
+/**
+ * Minify CSS
+ *
+ * 1. Remove Unnecessary Css
+ * 2. Autoprefix css
+ * 3. Minify css.min
+ */ 
+gulp.task('minifycss', function() {
+  return gulp.src('./app/css/styles.css')
+    .pipe(uncss({
+            html: ['app/**/*.html']
+        }))
+    .pipe(autoprefix())
+    .pipe(minifyCSS())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('./app/css'))
+});
+
+
+
+/**
+ * Build and minify JS
+ */
+// gulp.task('js', function () {
+//  gulp.src(['src/**/module.js', src.js])
+//      .pipe(sourcemaps.init())
+//      .pipe(concat('app.js'))
+//      .pipe(ngAnnotate())
+//      .pipe(uglify())
+//      .pipe(sourcemaps.write())
+//      .pipe(gulp.dest(dest.js))
+// })
+
+
+// // create a task that ensures the `js` task is complete before
+// // reloading browsers
+// //gulp.task('js-watch', ['js'], browserSync.reload);
+
+
+/**
+ * Default task "gulp"
+ */
+gulp.task('default', ['sass', 'browser-sync'], function () {
+    gulp.watch('sass/**/*.scss', ['sass']);
+});
+
+
