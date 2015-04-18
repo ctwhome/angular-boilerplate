@@ -9,7 +9,8 @@
  * Main module of the application.
  */
 var App = angular.module('App', [
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
 ])
 
 .config(function($stateProvider, $urlRouterProvider)

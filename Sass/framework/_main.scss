@@ -23,13 +23,10 @@ html  {
     }
 }
 
-.hide {
-  display: none;
-}
-
-a {
-  cursor: pointer;
-}
+.hide {display: none}
+a {cursor: pointer}
+// Styles to fix angular bootstrap-ui
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .main-container{
     position: absolute;
@@ -37,9 +34,42 @@ a {
     left: 0;
     right: 0;
     bottom: 0px;
-    //background-color: #004254;
     overflow: hidden;
 }
 
-
-
+// Sidebar - closed
+//.sidebar-closed
+.main-container-wrapper.sidebar-closed{
+    .page-content-wrapper {
+        left: 54px;
+    }
+    .page-sidebar{
+        width: 54px;
+        ul{
+            span.title{
+                display: none;
+            }
+            span.arrow{
+                margin-top: -25px;
+            }
+            .sub-menu{
+                margin-top: -55px;
+                margin-left: 54px;
+                li{
+                    height: 39px;
+                }
+            } 
+            li{
+                height:55px;
+                a{
+                    min-height: 0;
+                    padding-left: 10px;
+                }
+                span.selected{
+                    right: -2px;
+                    top: 16px;
+                }
+            }
+        }
+    }
+}

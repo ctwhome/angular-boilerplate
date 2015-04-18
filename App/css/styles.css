@@ -17947,6 +17947,9 @@ html {
 a {
   cursor: pointer; }
 
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer; }
+
 .main-container {
   position: absolute;
   top: 0;
@@ -17954,6 +17957,28 @@ a {
   right: 0;
   bottom: 0px;
   overflow: hidden; }
+
+.main-container-wrapper.sidebar-closed .page-content-wrapper {
+  left: 54px; }
+.main-container-wrapper.sidebar-closed .page-sidebar {
+  width: 54px; }
+  .main-container-wrapper.sidebar-closed .page-sidebar ul span.title {
+    display: none; }
+  .main-container-wrapper.sidebar-closed .page-sidebar ul span.arrow {
+    margin-top: -25px; }
+  .main-container-wrapper.sidebar-closed .page-sidebar ul .sub-menu {
+    margin-top: -55px;
+    margin-left: 54px; }
+    .main-container-wrapper.sidebar-closed .page-sidebar ul .sub-menu li {
+      height: 39px; }
+  .main-container-wrapper.sidebar-closed .page-sidebar ul li {
+    height: 55px; }
+    .main-container-wrapper.sidebar-closed .page-sidebar ul li a {
+      min-height: 0;
+      padding-left: 10px; }
+    .main-container-wrapper.sidebar-closed .page-sidebar ul li span.selected {
+      right: -2px;
+      top: 16px; }
 
 
 /*# sourceMappingURL=styles.css.map */

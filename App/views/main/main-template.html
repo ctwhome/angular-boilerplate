@@ -1,18 +1,20 @@
-<!-- top bar - navbar -->
-<ng-include src="'views/main/menu-navbar.html'"></ng-include>
+<div class="main-container-wrapper ">
+	<!-- top bar - navbar -->
+	<ng-include src="'views/main/menu-navbar.html'"></ng-include>
 
-<!-- CONTAINER -->
-<div class="page-container">
-    <!-- SIDEBAR -->
-    <ng-include src="'views/main/menu-sidebar.html'"></ng-include>
-    <!-- CONTENT -->
-    <div class="page-content-wrapper">
-        <div class="page-content">
-            <div ui-view></div>
-        </div>
-    </div>
+	<!-- CONTAINER -->
+	<div class="page-container">
+	    <!-- SIDEBAR -->
+	    <ng-include src="'views/main/menu-sidebar.html'"></ng-include>
+	    <!-- CONTENT -->
+	    <div class="page-content-wrapper">
+	        <div class="page-content">
+	            <div ui-view></div>
+	        </div>
+	    </div>
+	</div>
+	<!-- END CONTAINER -->
+
+	<!-- FOOTER -->
+	<ng-include src="'views/main/footer.html'"></ng-include> <!-- END FOOTER -->
 </div>
-<!-- END CONTAINER -->
-
-<!-- FOOTER -->
-<ng-include src="'views/main/footer.html'"></ng-include> <!-- END FOOTER -->
