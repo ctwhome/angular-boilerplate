@@ -56,9 +56,7 @@ gulp.task('browser-sync', function () {
  var separator = "\n------------------------------\n";
 gulp.task('sass', function () {
     return gulp.src(vars.src.scss)
-		
 
-        
         .pipe(sourcemaps.init())
             .pipe(sass())
                 .on('error', function(err){
@@ -67,10 +65,7 @@ gulp.task('sass', function () {
                     console.log(error);
                     this.emit('end');
                 })
-        .pipe(sourcemaps.write('./'))
-        // .pipe(rename('styles.map.css'))
-        // .pipe(gulp.dest(vars.des.css))
-        
+        .pipe(sourcemaps.write('./'))        
         .pipe(gulp.dest(vars.des.css))
 
         .pipe(filter("**/*.css"))
@@ -96,7 +91,6 @@ gulp.task('minifycss', function() {
 });
 
 
-
 /**
  * Build and minify JS
  */
@@ -114,6 +108,7 @@ gulp.task('minifycss', function() {
 // // create a task that ensures the `js` task is complete before
 // // reloading browsers
 // //gulp.task('js-watch', ['js'], browserSync.reload);
+gulp.task('watch', browserSync.reload);
 
 
 /**
@@ -121,6 +116,8 @@ gulp.task('minifycss', function() {
  */
 gulp.task('default', ['sass', 'browser-sync'], function () {
     gulp.watch('sass/**/*.scss', ['sass']);
+    gulp.watch(['app/**/*.js', 'app/**/*.html'], ['watch']);
+    // gulp.watch('app/**/*.html', ['watch']);
 });
 
 

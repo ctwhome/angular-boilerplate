@@ -122,7 +122,11 @@
             <div class="form-actions">
                 <button type="submit" class="btn btn-success uppercase">Login</button>
                 <label class="rememberme">
-                    <input type="checkbox" name="remember" value="1">Remember </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="auth.isLoggedIn">
+                        <div class="cb-check"></div> 
+                            Remember
+                    </label>
                 <a ng-click="showForget = ! showForget" id="forget-password" class="forget-password">Forgot Password?</a>
             </div>
 
@@ -164,8 +168,14 @@
     <br/><br/>
     <div>
         IsAuthenticated:
-        <input type="checkbox" ng-model="auth.isLoggedIn"/>
+        <input type="checkbox" />
     </div>
+<label class="checkbox">
+    <input type="checkbox" ng-model="auth.isLoggedIn">
+    <div class="cb-check"></div> 
+        Remember
+</label>
+
     <P>
         <a href="#/public">public</a> <i>can see anybody</i><br/>
         <a href="#/dashboard">Go to the app</a>
