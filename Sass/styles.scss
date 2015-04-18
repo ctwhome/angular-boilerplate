@@ -1,79 +1,36 @@
-
- @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all');
- @import url("fonts/fontawesome/css/font-awesome.min.css");
- @import url("fonts/simple-line-icons/simple-line-icons.min.css");
-
-
-
-//FIXME Move to the correct place this
-@font-face { font-family: 'Glyphicons Halflings';   
-     src: url('fonts/glyphicons/glyphicons-halflings-regular.eot');   
-     src: url('fonts/glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-     url('fonts/glyphicons/glyphicons-halflings-regular.woff') format('woff'),  
-     url('fonts/glyphicons/glyphicons-halflings-regular.ttf') format('truetype'), 
-     url('fonts/glyphicons/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg'); 
- } 
-
-
-@import 'global/_bootstrap';
-
 // Import the fonts
+@import "framework/fonts";
+@import "framework/colors";
 
+// Bootstrap
+@import 'lib/bootstrap';
 
+// Metronic theme
+@import 'lib/variables';                   // lib metronic framework variables
+@import 'lib/components/mixins';           // lib metronic framework mixings
+@import 'framework/variables';             // theme level variables
+@import 'lib/layout/print';                // print layout
+@import 'lib/layout/header';               // page header
+@import 'lib/layout/page-container';       // page main container
+@import 'lib/layout/sidebar';              // page sidebar
+@import 'lib/layout/content';              // page consnde
+@import 'lib/layout/footer';               // page footer
+@import 'lib/components';
+@import 'lib/plugins';
+@import 'lib/themes/grey';                 //  blue, light, dark, default, grey(default)
 
-//## Main Layout CSS Builder
-
-@import 'global/_variables';            // global metronic framework variables
-@import 'global/components/_mixins';    // global metronic framework mixings
-@import 'global/_checkbox';
-
-@import '_variables';                   // theme level variables  
-
- 
-@import 'layout/_print';                // print layout   
-
-@import 'layout/_header';               // page header 
-@import 'layout/_page-container';       // page main container    
-@import 'layout/_sidebar';              // page sidebar     
-@import 'layout/_content';              // page consnde                        
-@import 'layout/_footer';               // page footer                    
-  
-@import 'global/components';
-@import 'global/plugins';
-
-
-/* Choose between blue, light, dark, default, grey(default) */
-@import 'themes/grey';                  // Choose theme 
-
-/***        
-Page Loading    
-***/     
-.page-on-load {
-	background: #fefefe;
-
-	.page-header,
-	.page-container,   
-	.page-footer,
-	> .clearfix {
-		display: none;
-		transition: all 2s;
-	}
-}
-
-// FIXME Structure this framework folding
 
 /* BASE - Base Variable file along with starting point Mixins and Placeholders.
 ========================================================================== */
-@import 'framework/_responsive';      // If not using any framework
+@import 'framework/responsive';            // If not using any framework
 
 /* FRAMEWORK - Structure and layout files.
 ========================================================================== */
-@import 'framework/_main';
-@import 'framework/_header';
+@import 'framework/components/checkbox';
+@import 'framework/header';
 
 /* VIEWS - PAGES
 ========================================================================== */
+@import 'framework/main';
 
-// * {
-// 	background-color: blue
-// }
+

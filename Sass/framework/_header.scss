@@ -12,16 +12,15 @@
 
 .menu-toggler-icon {
     float: left;
-    margin: 29px;
-    background-image: url("../images/sidebar_toggler_icon_grey.png");
+    margin: 30px 15px;
+    background-image: url("../images/sidebar-toggler-inverse.png");
     display: block;
     width: 16px;
     height: 13px;
-    &:hover{
-        background-image: url("../images/sidebar_toggler_icon_darkblue.png");
-    }
 }
 .logo-company{
     float: left;
     margin: 10px 0 0 15px;
 }
+
+

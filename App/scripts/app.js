@@ -151,13 +151,17 @@ App.run(function ($rootScope, $state, $location, Auth) {
             && toState.name !== "public"
             && toState.name !== "login" ;
 
-        if(shouldGoToPublic)
-        {
-            // $state.go('public');
-            $state.go('login');
-            event.preventDefault();
-        }
-        
+
+        /**
+         * Coment this to avoid the login
+         */
+        //if(shouldGoToPublic)
+        //{
+        //    // $state.go('public');
+        //    $state.go('login');
+        //    event.preventDefault();
+        //}
+
         // unmanaged
     });
 });

@@ -1,3 +1,28 @@
+html  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    //background-color: #004254;
+    overflow: hidden;
+
+}
+/*
+* Page Loading
+*/
+.page-on-load {
+    background: #fefefe;
+
+    .page-header,
+    .page-container,
+    .page-footer,
+    > .clearfix {
+        display: none;
+        transition: all 2s;
+    }
+}
+
 .hide {
   display: none;
 }
@@ -5,4 +30,16 @@
 a {
   cursor: pointer;
 }
+
+.main-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    //background-color: #004254;
+    overflow: hidden;
+}
+
+
 

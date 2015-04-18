@@ -1,0 +1,13 @@
+//FIXME integrate external fonts into de project
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all');
+@import url("fonts/fontawesome/css/font-awesome.min.css");
+@import url("fonts/simple-line-icons/simple-line-icons.min.css");
+
+
+@font-face { font-family: 'Glyphicons Halflings';
+    src: url('fonts/glyphicons/glyphicons-halflings-regular.eot');
+    src: url('fonts/glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/glyphicons/glyphicons-halflings-regular.woff') format('woff'),
+    url('fonts/glyphicons/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('fonts/glyphicons/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
