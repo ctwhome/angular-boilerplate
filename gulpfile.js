@@ -57,17 +57,22 @@ gulp.task('browser-sync', function () {
 gulp.task('sass', function () {
     return gulp.src(vars.src.scss)
 		
+
+        
         .pipe(sourcemaps.init())
             .pipe(sass())
-        .pipe(sourcemaps.write())
+                .on('error', function(err){
+                    browserSync.notify(err.message, 3000);
+                    var error = "\nSASS ERROR"+separator+ 'Error: '+err.message + '\nFile: '+ err.fileName +'\nLine:'+err.lineNumber +separator;
+                    console.log(error);
+                    this.emit('end');
+                })
+        .pipe(sourcemaps.write('./'))
+        // .pipe(rename('styles.map.css'))
+        // .pipe(gulp.dest(vars.des.css))
         
-        .on('error', function(err){
-            browserSync.notify(err.message, 3000);
-            var error = "\nSASS ERROR"+separator+ 'Error: '+err.message + '\nFile: '+ err.fileName +'\nLine:'+err.lineNumber +separator;
-            console.log(error);
-            this.emit('end');
-        })
         .pipe(gulp.dest(vars.des.css))
+
         .pipe(filter("**/*.css"))
         .pipe(reload({stream:true}));
 });
