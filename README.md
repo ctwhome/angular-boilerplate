@@ -1,17 +1,17 @@
 # angular-boilerplate
 A custom Angular boilerplate focused in web components, ngNewRouter, with user authentication, i18n and more. Gulp + Sass + Minification
 
-##Open development enviroment (sass watching)
+####Open development enviroment (sass watching)
 ```
 $ gulp
 ```
 
-## Compile sass
+#### Compile sass
 ```
 $ gulp sass
 ```
 
-## Minify css
+#### Minify css
 ```
 $ gulp minifycss
 ```
