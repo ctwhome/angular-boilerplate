@@ -1,5 +1,5 @@
 # angular-boilerplate
-A custom Angular boilerplate focused in web components, ngNewRouter, with user authentication, i18n and more. Gulp + Sass + Minification
+A custom Angular boilerplate focused in web components, ngNewRouter, with user authentication, i18n and more. Gulp + Sass + BrowserSync
 
 ####Open development enviroment (sass watching)
 ```
@@ -35,7 +35,8 @@ $ gulp minifycss
  - Gulp: Simple building and minification (work in progress)
  - Angular Template cache
  - Use restangular or $resource??
- - Live Edit for documentation, requires login authentification mongolabs connection)
+ - Live Edit for content with CKEditor or TinyMCE
+ - Conection with mongo labs (optional)
  - Multi languages
  - Documentation for best practices
  - Access login with http://andreareginato.github.io/oauth-ng/??
