@@ -11,7 +11,7 @@ $ gulp
 $ gulp sass
 ```
 
-#### Minify css
+#### Minify css (Uncss and minify)
 ```
 $ gulp minifycss
 ```
@@ -25,15 +25,15 @@ $ gulp minifycss
     - Uncss + minification
 - **Angular:**
 	- ui-router (to be changed to ngNewRouter)
-    - login form (state)
+    - login form (state) with block windows
     - Responsive theme (http://www.keenthemes.com/preview/metronic/theme/templates/admin2/) with sass Structure from one file
+    - UI bootstrap
  
 
 ###TODO
  - Add web component example structure (buid with directives)
  - Gulp: Simple building and minification (work in progress)
  - Angular Template cache
- - UI bootstrap
  - Use restangular or $resource??
  - Live Edit for documentation, requires login authentification mongolabs connection)
  - Multi languages
