@@ -32,4 +32,24 @@ App.controller('login-page-controller',['$scope', 'Auth', function($scope, Auth)
 
 
 
+      $scope.alerts = [
+            //{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+        ];
+
+
+    /**
+     * Add alert
+     */
+        $scope.addAlert = function() {
+            $scope.alerts.push({msg: 'Another alert!'});
+        };
+    /**
+     * Close alert
+     * @param index
+     */
+        $scope.closeAlert = function(index) {
+            $scope.alerts.splice(index, 1);
+        };
+
+
 }])

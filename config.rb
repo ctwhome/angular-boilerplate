@@ -10,7 +10,7 @@ require 'sass-css-importer'
 http_path = "/"
 css_dir = "app/css"
 sass_dir = "sass"
-images_dir = "app/images"
+images_dir = "app/img"
 javascripts_dir = "scripts"
 
 # You can select your preferred output style here (can be overridden via the command line):

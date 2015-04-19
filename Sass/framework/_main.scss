@@ -8,66 +8,88 @@ html  {
     overflow: hidden;
 
 }
-/*
-* Page Loading
-*/
-.page-on-load {
-    background: #fefefe;
 
-    .page-header,
-    .page-container,
-    .page-footer,
-    > .clearfix {
-        display: none;
-        transition: all 2s;
+
+// Transitions between screen loaders
+.main-containes {
+    &.ng-enter {
+        transition: 0.25s;
+        opacity: 0;
+    }
+    &.ng-enter-active {
+        opacity: 1;
+    }
+    &.ng-leave {
+        transition: 0.25s;
+        opacity: 1;
+    }
+    &.ng-leave-active {
+        opacity: 0;
     }
 }
 
-.hide {display: none}
-a {cursor: pointer}
-// Styles to fix angular bootstrap-ui
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
-.main-container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0px;
-    overflow: hidden;
-}
+    /*
+    * Page Loading
+    */
+    .page-on-load {
+        background: #fefefe;
 
-// Sidebar - closed
-//.sidebar-closed
-.main-container-wrapper.sidebar-closed{
-    .page-content-wrapper {
-        left: 54px;
+        .page-header,
+        .page-container,
+        .page-footer,
+        > .clearfix {
+            display: none;
+            transition: all 2s;
+        }
     }
-    .page-sidebar{
-        width: 54px;
-        ul{
-            span.title{
-                display: none;
-            }
-            span.arrow{
-                margin-top: -25px;
-            }
-            .sub-menu{
-                margin-top: -55px;
-                margin-left: 54px;
+
+    .hide {display: none}
+    a {cursor: pointer}
+    // Styles to fix angular bootstrap-ui
+    .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+    .main-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0px;
+        overflow: hidden;
+    }
+
+    // Sidebar - closed
+    //.sidebar-closed
+    .main-container-wrapper.sidebar-closed{
+        .page-content-wrapper {
+            left: 54px;
+        }
+        .page-sidebar{
+            width: 54px;
+            ul{
+                span.title{
+                    display: none;
+                }
+                span.arrow{
+                    margin-top: -25px;
+                }
+                .sub-menu{
+                    margin-top: -55px;
+                    margin-left: 54px;
+                    li{
+                        height: 39px;
+                    }
+                }
                 li{
-                    height: 39px;
-                }
-            } 
-            li{
-                height:55px;
-                a{
-                    min-height: 0;
-                    padding-left: 10px;
-                }
-                span.selected{
-                    right: -2px;
-                    top: 16px;
+                    height:55px;
+                    a{
+                        min-height: 0;
+                        padding-left: 10px;
+                    }
+                    span.selected{
+                        right: -2px;
+                        top: 16px;
+                    }
                 }
             }
         }

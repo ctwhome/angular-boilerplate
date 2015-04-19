@@ -5036,7 +5036,7 @@ Page Header
       display: none;
       float: right;
       margin: 24px 14px 0 6px;
-      background-image: url(../images/sidebar-toggler-inverse.png); }
+      background-image: url(../img/sidebar-toggler-inverse.png); }
   .page-header.navbar .page-actions {
     margin: 17px 0 15px 15px;
     padding: 0;
@@ -17913,7 +17913,7 @@ input[type="checkbox"]:checked + .cb-check {
 .menu-toggler-icon {
   float: left;
   margin: 30px 15px;
-  background-image: url("../images/sidebar-toggler-inverse.png");
+  background-image: url("../img/sidebar-toggler-inverse.png");
   display: block;
   width: 16px;
   height: 13px; }
