@@ -17928,9 +17928,7 @@ adding or removin the class FLIP creates the effectkey
 */
 .flip-container {
   perspective: 1000;
-  transform-style: preserve-3d;
-  width: 320px;
-  height: 480px; }
+  transform-style: preserve-3d; }
   .flip-container.flip .back {
     transform: rotateY(0deg); }
   .flip-container.flip .front {
@@ -17944,8 +17942,6 @@ adding or removin the class FLIP creates the effectkey
 
 /* hide back of pane during swap */
 .front, .back {
-  width: 320px;
-  height: 480px;
   backface-visibility: hidden;
   transition: 0.6s;
   transform-style: preserve-3d;
