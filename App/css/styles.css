@@ -2109,7 +2109,7 @@ input[type="search"] {
 
 .radio, .checkbox {
   position: relative;
-  display: block;
+  display: inline-block;
   margin-top: 10px;
   margin-bottom: 10px; }
   .radio label, .checkbox label {
@@ -17942,6 +17942,7 @@ adding or removin the class FLIP creates the effectkey
 
 /* hide back of pane during swap */
 .front, .back {
+  width: 100%;
   backface-visibility: hidden;
   transition: 0.6s;
   transform-style: preserve-3d;
@@ -18047,6 +18048,77 @@ a {
     .main-container-wrapper.sidebar-closed .page-sidebar ul li span.selected {
       right: -2px;
       top: 16px; }
+
+.flip-container {
+  height: 150px; }
+
+.login {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 10%; }
+  .login h3 {
+    margin-top: 0; }
+  .login img.logo {
+    /*background-image: url("../images/logo-trans--small.png");*/
+    width: 241px;
+    height: 50px;
+    margin: 0 auto;
+    display: block;
+    border: none;
+    margin-bottom: 30px; }
+  .login .card-container.card {
+    padding: 40px 30px 50px 30px; }
+  .login .card {
+    background-color: #eceef1;
+    /* just in case there no content*/
+    padding: 10px 30px 30px 30px;
+    margin: 50px auto 0px auto; }
+  .login .footer {
+    background-color: #6c7a8d;
+    color: #acb7c6;
+    padding: 20px;
+    text-align: center; }
+  .login input[type="text"], .login input[type="email"], .login input[type="password"] {
+    background-color: #dde3ec;
+    border: 1px solid #dde3ec;
+    color: #8290a3;
+    height: 43px;
+    font-size: 1em;
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    margin-bottom: 15px; }
+  .login input[type="text"]:focus, .login input[type="email"]:focus, .login input[type="password"]:focus {
+    outline: none !important;
+    border: 1px solid #c3ccda;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important; }
+  .login .btn-success {
+    background-color: #45B6af;
+    border-color: #3ea49d; }
+  .login label {
+    font-weight: 300;
+    color: #696969; }
+  .login .rememberme {
+    margin-left: 15px; }
+  .login .btn-success:focus {
+    background-color: #45B6af;
+    border-color: #3ea49d; }
+  .login .btn-success:hover {
+    background-color: #3b958e;
+    border-color: #3b958e; }
+  .login .btn-success:active {
+    background-color: #347b74;
+    border-color: #347b74; }
+
+/*
+ * Card component
+ */
+.forget-password {
+  padding-left: 15px;
+  padding-top: 20px; }
 
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,217 +1,113 @@
-<style>
-
-    .login {
-        width: 400px;
-        margin: 0 auto;
-        margin-top: 10%;
-    }
-
-    .login img.logo {
-        /*background-image: url("../images/logo-trans--small.png");*/
-        width: 241px;
-        height: 50px;
-        margin: 0 auto;
-        display: block;
-        border: none;
-        margin-bottom: 30px;
-    }
-
-    .login .card-container.card {
-        padding: 40px 30px;
-    }
-
-    /*
-     * Card component
-     */
-    .login .card {
-        background-color: #eceef1;
-        /* just in case there no content*/
-        padding: 10px 30px 30px 30px;
-        margin: 50px auto 0px auto;
-
-    }
-
-    .login .footer {
-        background-color: #6c7a8d;
-        color: #acb7c6;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .login input[type="text"], .login input[type="password"], input[type="text"]:focus, input[type="password"]:focus {
-        background-color: #dde3ec;
-        border: 1px solid #dde3ec;
-        color: #8290a3;
-        height: 43px;
-        font-size: 1em;
-        outline: none !important;
-        -webkit-box-shadow: none !important;
-        -moz-box-shadow: none !important;
-        box-shadow: none !important;
-        margin-bottom: 15px;
-
-    }
-
-    .login input[type="text"]:focus, .login input[type="password"]:focus {
-        outline: none !important;
-        border: 1px solid #c3ccda;
-
-        -webkit-box-shadow: none !important;
-        -moz-box-shadow: none !important;
-        box-shadow: none !important;
-    }
-
-    .login .btn-success, .btn-success:focus {
-        background-color: #45B6af;
-        border-color: #3ea49d;
-    }
-
-    .btn-success:hover {
-        background-color: #3b958e;
-        border-color: #3b958e;
-    }
-
-    .btn-success:active {
-        background-color: #347b74;
-        border-color: #347b74;
-    }
-
-    .login label {
-        font-weight: 300;
-        color: #696969;
-    }
-
-    .login .rememberme {
-        margin-left: 15px;
-    }
-
-    .forget-password {
-        float: right;
-        padding-top: 10px;
-    }
-</style>
-<!--
-    you can substitue the span of reauth email for a input with the email and
-    include the remember me checkbox
-    -->
 <div class="login">
+                <div class="card card-container">
+                <img class="logo" src="img/logo-trans--small.png"/>
+
+                <!--<h3 class="form-title">Sign In</h3>-->
+                <alert ng-repeat="alert in alerts" type="{{alert.type}}"
+                       close="closeAlert($index)">{{alert.msg}}
+                </alert>
 
     <div class="flip-container {{flip}}">
-        <div class="">
-            <div class="front">
-                <!-- front content -->
+        <div class="front">
+            <!-- front content -->
+                <form name="form" shake-that submitted="submitted" submit="submit()">
+                    <div class="form-group" ng-class="{'has-error': form.email.$invalid && submitted}">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="username"
+                            name="usernam"
+                            placeholder="Username"
+                            ng-model="username"
+                            ng-model-options="{updateOn: 'blur'}"
+                            required>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': form.password.$invalid && submitted}">
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            name="password"
+                            placeholder="Password"
+                            ng-model="password"
+                            ng-model-options="{updateOn: 'blur'}"
+                            required>
+                    </div>
 
-                <div class="card card-container">
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success uppercase">Login</button>
 
-                    <img class="logo" src="img/logo-trans--small.png"/>
 
-                    <!--<h3 class="form-title">Sign In</h3>-->
-                    <alert ng-repeat="alert in alerts" type="{{alert.type}}"
-                           close="closeAlert($index)">{{alert.msg}}
-                    </alert>
+                        <label class="rememberme">
+                            <label class="checkbox">
+                                <input type="checkbox">
 
-                    <form name="form" shake-that submitted="submitted" submit="submit()">
-                        <div class="form-group" ng-class="{'has-error': form.email.$invalid && submitted}">
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="username"
-                                name="usernam"
-                                placeholder="Username"
-                                ng-model="username"
-                                ng-model-options="{updateOn: 'blur'}"
-                                required>
-                        </div>
-                        <div class="form-group" ng-class="{'has-error': form.password.$invalid && submitted}">
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="password"
-                                name="password"
-                                placeholder="Password"
-                                ng-model="password"
-                                ng-model-options="{updateOn: 'blur'}"
-                                required>
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-success uppercase">Login</button>
-                            <button class='btn btn-default'
-                                    ng-click="addAlert()">Add Alert
-                            </button>
-
-                            <label class="rememberme">
-                                <label class="checkbox">
-                                    <input type="checkbox" ng-model="auth.isLoggedIn">
-                                    <div class="cb-check"></div>
-                                    Remember
-                                </label>
-                                <a ng-click="showForget = ! showForget" id="forget-password" class="forget-password">Forgot Password?</a>
-                        </div>
-                        </form>
-
-                    </form>
-
-                </div>
-                <!-- /card-container -->
-
-                <div class="footer">
-                    2015 &copy; Learnlinq by L&M Software
-                </div>
-
-                <br/><br/>
-
-                <div>
-                    IsAuthenticated:
-                    <input type="checkbox"/>
-                </div>
-                <label class="checkbox">
-                    <input type="checkbox" ng-model="auth.isLoggedIn">
-
-                    <div class="cb-check"></div>
-                    Remember
-                </label>
-
-                <P>
-                    <a href="#/public">public</a> <i>can see anybody</i><br/>
-                    <a href="#/dashboard">Go to the app</a>
-
-                </P>
+                                <div class="cb-check"></div>
+                                Remember
+                            </label>
+                            <a ng-click="changeFlip()" id="forget-password" class="forget-password">Forgot Password?</a>
+                        </label>
+                    </div>
+                </form>
             </div>
-            <!-- /Login container -->
 
-
-            <button id="btn" ng-click="changeFlip()">Change Class</button>
-
-
-        </div>
         <div class="back">
             <!-- flipper back content -->
+
+            <h3>Forget Password ?</h3>
+
+            <p>Enter your e-mail address below to reset your password.</p>
             <form submit="submit()">
                 <div class="form-group" ng-class="{'has-error': form.email.$invalid && submitted}">
                     <input
-                        type="text"
+                        type="email"
                         class="form-control"
-                        id="username"
+                        id="loginmail"
                         name="usernam"
-                        placeholder="Username"
-                        ng-model="username"
+                        placeholder="e-mail"
+                        ng-model="mail"
                         ng-model-options="{updateOn: 'blur'}"
                         required>
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-success uppercase">Send</button>
+                    <button type="button" ng-click="changeFlip()" id="back-btn" class="btn btn-default">Back</button>
+                    <button type="submit" class="btn btn-success uppercase pull-right">Submit</button>
                 </div>
 
             </form>
-
-            <img class="logo" src="img/logo-trans--small.png"/>
-
-            <h1>2</h1>
         </div>
     </div>
+                </div>
+
+                <div class="footer">
+                    2015 &copy; Learnlinq by L&M Software
+                </div>
+
+
 </div>
 
 
+<!--FIXME ONLY DEBUGGER PRUPORSES-->
+<div style="color: #ccc; margin:10px; width: 250px;padding: 10px; position: absolute; bottom: 0px">
+    <div>
 
+        <a  style="color: orange"
+                ng-click="addAlert()">Add Alert
+        </a>
+        <input type="checkbox"/>
+        <label class="checkbox">
+            IsAuthenticated: <input type="checkbox" ng-model="auth.isLoggedIn">
+            <span class="cb-check"></span>
+        </label>
+    </div>
+
+    <P>
+        <a  style="color: orange"href="#/public">public</a> <i>can see anybody</i><br/>
+        <a  style="color: orange" href="#/dashboard">Go to the app</a>
+
+    </P>
+
+
+
+</div>

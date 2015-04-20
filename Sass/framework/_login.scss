@@ -1,0 +1,101 @@
+.flip-container{
+    height: 150px;
+}
+
+
+.login {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 10%;
+
+    h3{
+        margin-top: 0;
+    }
+    img.logo {
+        /*background-image: url("../images/logo-trans--small.png");*/
+        width: 241px;
+        height: 50px;
+        margin: 0 auto;
+        display: block;
+        border: none;
+        margin-bottom: 30px;
+    }
+    .card-container.card {
+        padding: 40px 30px 50px 30px;
+    }
+    .card {
+        background-color: #eceef1;
+        /* just in case there no content*/
+        padding: 10px 30px 30px 30px;
+        margin: 50px auto 0px auto;
+    }
+    .footer {
+        background-color: #6c7a8d;
+        color: #acb7c6;
+        padding: 20px;
+        text-align: center;
+    }
+    input {
+
+        &[type="text"],
+        &[type="email"],
+        &[type="password"] {
+            background-color: #dde3ec;
+            border: 1px solid #dde3ec;
+            color: #8290a3;
+            height: 43px;
+            font-size: 1em;
+            outline: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            box-shadow: none !important;
+            margin-bottom: 15px;
+        }
+        &[type="text"]:focus,
+        &[type="email"]:focus,
+        &[type="password"]:focus {
+            outline: none !important;
+            border: 1px solid #c3ccda;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            box-shadow: none !important;
+        }
+    }
+    .btn-success {
+        background-color: #45B6af;
+        border-color: #3ea49d;
+    }
+
+    label {
+        font-weight: 300;
+        color: #696969;
+    }
+    .rememberme {
+        margin-left: 15px;
+    }
+
+    .btn-success {
+        &:focus {
+            background-color: #45B6af;
+            border-color: #3ea49d;
+        }
+        &:hover {
+            background-color: #3b958e;
+            border-color: #3b958e;
+        }
+        &:active {
+            background-color: #347b74;
+            border-color: #347b74;
+        }
+    }
+
+    }
+
+/*
+ * Card component
+ */
+
+.forget-password {
+    padding-left: 15px;
+    padding-top: 20px;
+}
