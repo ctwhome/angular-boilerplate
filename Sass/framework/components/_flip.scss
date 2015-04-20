@@ -1,0 +1,76 @@
+/* entire container, keeps perspective */
+
+
+/*
+Basic structure
+adding or removin the class FLIP creates the effectkey
+
+<div class="flip-container flip" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+        <div class="front">
+            <!-- front content -->
+            <img class="logo" src="img/logo-trans--small.png" />
+            <h1>1</h1>
+
+
+        </div>
+        <div class="back">
+            <!-- back content -->
+
+            <img class="logo" src="img/logo-trans--small.png" />
+            <h1>2</h1>
+        </div>
+    </div>
+</div>
+
+
+*/
+
+.flip-container {
+    perspective: 1000;
+    transform-style: preserve-3d;
+    &.flip {
+        .back {
+            transform: rotateY(0deg);
+        }
+        .front {
+            transform: rotateY(180deg);
+        }
+    }
+    width: 320px;
+    height: 480px;
+}
+
+/* flip speed goes here */
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+
+.front, .back {
+    width: 320px;
+    height: 480px;
+    backface-visibility: hidden;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*  UPDATED! front pane, placed above back */
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+
+.back {
+    transform: rotateY(-180deg);
+}

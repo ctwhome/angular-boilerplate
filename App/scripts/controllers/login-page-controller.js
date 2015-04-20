@@ -31,6 +31,14 @@ App.controller('login-page-controller',['$scope', 'Auth', function($scope, Auth)
     //};
 
 
+    $scope.flip ="";
+        $scope.changeFlip = function(){
+            if ($scope.flip == "")
+                $scope.flip = "flip";
+            else
+                $scope.flip = "";
+        };
+
 
       $scope.alerts = [
             //{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }

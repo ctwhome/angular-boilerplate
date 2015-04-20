@@ -17901,6 +17901,67 @@ input[type="checkbox"]:checked + .cb-check {
     -ms-filter: none;
     filter: none; }
 
+/* entire container, keeps perspective */
+/*
+Basic structure
+adding or removin the class FLIP creates the effectkey
+
+<div class="flip-container flip" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+        <div class="front">
+            <!-- front content -->
+            <img class="logo" src="img/logo-trans--small.png" />
+            <h1>1</h1>
+
+
+        </div>
+        <div class="back">
+            <!-- back content -->
+
+            <img class="logo" src="img/logo-trans--small.png" />
+            <h1>2</h1>
+        </div>
+    </div>
+</div>
+
+
+*/
+.flip-container {
+  perspective: 1000;
+  transform-style: preserve-3d;
+  width: 320px;
+  height: 480px; }
+  .flip-container.flip .back {
+    transform: rotateY(0deg); }
+  .flip-container.flip .front {
+    transform: rotateY(180deg); }
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative; }
+
+/* hide back of pane during swap */
+.front, .back {
+  width: 320px;
+  height: 480px;
+  backface-visibility: hidden;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+/*  UPDATED! front pane, placed above back */
+.front {
+  z-index: 2;
+  transform: rotateY(0deg); }
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(-180deg); }
+
 .page-header.navbar .page-logo {
   background: transparent; }
 
@@ -17932,9 +17993,20 @@ html {
   bottom: 0px;
   overflow: hidden; }
 
+.main-containes.ng-enter {
+  transition: 0.25s;
+  opacity: 0; }
+.main-containes.ng-enter-active {
+  opacity: 1; }
+.main-containes.ng-leave {
+  transition: 0.25s;
+  opacity: 1; }
+.main-containes.ng-leave-active {
+  opacity: 0; }
+
 /*
-* Page Loading
-*/
+    * Page Loading
+    */
 .page-on-load {
   background: #fefefe; }
   .page-on-load .page-header, .page-on-load .page-container, .page-on-load .page-footer, .page-on-load > .clearfix {

@@ -85,106 +85,128 @@
     you can substitue the span of reauth email for a input with the email and
     include the remember me checkbox
     -->
-<div class="login">
 
-    <div class="card card-container">
+<div class="flip-container {{flip}}"  >
+    <div class="flipper">
+        <div class="front">
+            <!-- front content -->
+            <div class="login">
 
-        <img class="logo" src="img/logo-trans--small.png" />
+                <div class="card card-container">
 
-        <!--<h3 class="form-title">Sign In</h3>-->
-        <alert ng-repeat="alert in alerts" type="{{alert.type}}"
-               close="closeAlert($index)">{{alert.msg}}
-        </alert>
+                    <img class="logo" src="img/logo-trans--small.png" />
 
-        <form name="form" shake-that submitted="submitted" submit="submit()">
-            <div class="form-group" ng-class="{'has-error': form.email.$invalid && submitted}">
-                <input
-                        type="text"
-                        class="form-control"
-                        id="username"
-                        name="usernam"
-                        placeholder="Username"
-                        ng-model="username"
-                        ng-model-options="{updateOn: 'blur'}"
-                        required>
-            </div>
-            <div class="form-group" ng-class="{'has-error': form.password.$invalid && submitted}">
-                <input
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        ng-model="password"
-                        ng-model-options="{updateOn: 'blur'}"
-                        required>
-            </div>
+                    <!--<h3 class="form-title">Sign In</h3>-->
+                    <alert ng-repeat="alert in alerts" type="{{alert.type}}"
+                           close="closeAlert($index)">{{alert.msg}}
+                    </alert>
 
-            <div class="form-actions">
-                <button type="submit" class="btn btn-success uppercase">Login</button>
-            <button class='btn btn-default'
-                    ng-click="addAlert()">Add Alert
-            </button>
+                    <form name="form" shake-that submitted="submitted" submit="submit()">
+                        <div class="form-group" ng-class="{'has-error': form.email.$invalid && submitted}">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="username"
+                                name="usernam"
+                                placeholder="Username"
+                                ng-model="username"
+                                ng-model-options="{updateOn: 'blur'}"
+                                required>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': form.password.$invalid && submitted}">
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="password"
+                                name="password"
+                                placeholder="Password"
+                                ng-model="password"
+                                ng-model-options="{updateOn: 'blur'}"
+                                required>
+                        </div>
 
-                <label class="rememberme">
-                    <label class="checkbox">
-                        <input type="checkbox" ng-model="auth.isLoggedIn">
-                        <div class="cb-check"></div>
-                            Remember
-                    </label>
-                <a ng-click="showForget = ! showForget" id="forget-password" class="forget-password">Forgot Password?</a>
-            </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success uppercase">Login</button>
+                            <button class='btn btn-default'
+                                    ng-click="addAlert()">Add Alert
+                            </button>
 
-        </form>
+                            <label class="rememberme">
+                                <label class="checkbox">
+                                    <input type="checkbox" ng-model="auth.isLoggedIn">
+                                    <div class="cb-check"></div>
+                                    Remember
+                                </label>
+                                <a ng-click="showForget = ! showForget" id="forget-password" class="forget-password">Forgot Password?</a>
+                        </div>
 
-        <br/><br/><br/>
+                    </form>
 
-        <form  ng-show="showForget" name="form" shake-that submitted="submitted" submit="submit()">
-            <div class="form-group" ng-class="{'has-error': form.email.$invalid && submitted}">
-                <input
-                        type="text"
-                        class="form-control"
-                        id="username"
-                        name="usernam"
-                        placeholder="Username"
-                        ng-model="username"
-                        ng-model-options="{updateOn: 'blur'}"
-                        required>
-            </div>
+                    <br/><br/><br/>
 
-            <div class="form-actions">
-                <button type="submit" class="btn btn-success uppercase">Send</button>
-            </div>
+                    <form  ng-show="showForget" name="form" shake-that submitted="submitted" submit="submit()">
+                        <div class="form-group" ng-class="{'has-error': form.email.$invalid && submitted}">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="username"
+                                name="usernam"
+                                placeholder="Username"
+                                ng-model="username"
+                                ng-model-options="{updateOn: 'blur'}"
+                                required>
+                        </div>
 
-        </form>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success uppercase">Send</button>
+                        </div>
+
+                    </form>
 
 
+                </div>
+                <!-- /card-container -->
+
+
+
+
+
+
+                <div class="footer">
+                    2015 &copy; Learnlinq by L&M Software
+                </div>
+
+                <br/><br/>
+                <div>
+                    IsAuthenticated:
+                    <input type="checkbox" />
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="auth.isLoggedIn">
+                    <div class="cb-check"></div>
+                    Remember
+                </label>
+
+                <P>
+                    <a href="#/public">public</a> <i>can see anybody</i><br/>
+                    <a href="#/dashboard">Go to the app</a>
+
+                </P>
+            </div><!-- /Login container -->
+
+
+            <button id="btn" ng-click="changeFlip()">Change Class</button>
+
+
+        </div>
+        <div class="back">
+            <!-- back content -->
+
+            <img class="logo" src="img/logo-trans--small.png" />
+            <h1>2</h1>
+        </div>
     </div>
-    <!-- /card-container -->
+</div>
 
 
-
-
-
-    <div class="footer">
-            2015 &copy; Learnlinq by L&M Software
-    </div>
-
-    <br/><br/>
-    <div>
-        IsAuthenticated:
-        <input type="checkbox" />
-    </div>
-<label class="checkbox">
-    <input type="checkbox" ng-model="auth.isLoggedIn">
-    <div class="cb-check"></div>
-        Remember
-</label>
-
-    <P>
-        <a href="#/public">public</a> <i>can see anybody</i><br/>
-        <a href="#/dashboard">Go to the app</a>
-
-    </P>
-</div><!-- /Login container -->
 
