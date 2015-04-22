@@ -3,6 +3,8 @@ node_modules
 config.codekit
 Iconr
 npm-debug.log
-.idea
+.idea/
+**/.idea/workspace.xml 
+**/.idea/tasks.xml
 app/css/styles.css
 app/css/styles.css.map
