@@ -1,4 +1,5 @@
-<div class="login">
+<div class="animated fadeIn">
+    <div class="login animated {{animateBox}}">
                 <div class="card card-container">
                 <img class="logo" src="img/logo-trans--small.png"/>
 
@@ -7,8 +8,8 @@
                        close="closeAlert($index)">{{alert.msg}}
                 </alert>
 
-    <div class="flip-container {{flip}}">
-        <div class="front">
+    <div class="flip-container">
+        <div ng-show="stateLogin" class="">
             <!-- front content -->
                 <form name="form" shake-that submitted="submitted" submit="submit()">
                     <div class="form-group" ng-class="{'has-error': form.email.$invalid && submitted}">
@@ -36,22 +37,19 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success uppercase">Login</button>
-
-
                         <label class="rememberme">
                             <label class="checkbox">
                                 <input type="checkbox">
-
                                 <div class="cb-check"></div>
                                 Remember
                             </label>
-                            <a ng-click="changeFlip()" id="forget-password" class="forget-password">Forgot Password?</a>
+                            <a ng-click="toggleLogin()" id="forget-password" class="forget-password">Forgot Password?</a>
                         </label>
                     </div>
                 </form>
             </div>
 
-        <div class="back">
+        <div ng-hide="stateLogin" class="animated fadeIn">
             <!-- flipper back content -->
 
             <h3>Forget Password ?</h3>
@@ -71,7 +69,7 @@
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" ng-click="changeFlip()" id="back-btn" class="btn btn-default">Back</button>
+                    <button type="button" ng-click="toggleLogin()" id="back-btn" class="btn btn-default">Back</button>
                     <button type="submit" class="btn btn-success uppercase pull-right">Submit</button>
                 </div>
 
@@ -84,9 +82,8 @@
                     2015 &copy; Learnlinq by L&M Software
                 </div>
 
-
 </div>
-
+</div>
 
 <!--FIXME ONLY DEBUGGER PRUPORSES-->
 <div style="color: #ccc; margin:10px; width: 250px;padding: 10px; position: absolute; bottom: 0px">
@@ -105,9 +102,6 @@
     <P>
         <a  style="color: orange"href="#/public">public</a> <i>can see anybody</i><br/>
         <a  style="color: orange" href="#/dashboard">Go to the app</a>
-
     </P>
-
-
 
 </div>

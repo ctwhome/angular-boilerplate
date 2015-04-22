@@ -4,3 +4,5 @@ config.codekit
 Iconr
 npm-debug.log
 .idea
+app/css/styles.css
+app/css/styles.css.map
